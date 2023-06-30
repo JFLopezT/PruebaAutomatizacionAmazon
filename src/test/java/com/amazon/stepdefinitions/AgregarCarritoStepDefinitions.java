@@ -2,6 +2,7 @@ package com.amazon.stepdefinitions;
 
 import com.amazon.tasks.BuscarItem;
 import com.amazon.tasks.BuscarItemMarca;
+import com.amazon.tasks.BuscarItemRecomendado;
 import com.amazon.tasks.SeleccionarItem;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Entonces;
@@ -55,5 +56,14 @@ public class AgregarCarritoStepDefinitions {
         );
 
     }
+
+    @Cuando("{actor} agrega al carrito los items recomendados")
+    public void agregarDosItemsCarritoRecomendado(Actor actor, io.cucumber.datatable.DataTable dataTable) {
+        actor.attemptsTo(Open.url("https://www.amazon.com"));
+        dataTable.asList().forEach(item -> {
+            actor.attemptsTo(BuscarItemRecomendado.conRecomendacion(item));
+        });
+    }
+
 
 }

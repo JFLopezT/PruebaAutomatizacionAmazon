@@ -1,5 +1,6 @@
 package com.amazon.stepdefinitions;
 
+import com.amazon.tasks.ComprarItemJuegos;
 import com.amazon.tasks.ComprarTarjetaElectronica;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Entonces;
@@ -8,6 +9,7 @@ import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.ensure.Ensure;
 
 import static com.amazon.page.DetalleItem.BOTON_COMPRAR;
+import static com.amazon.page.DetalleItem.BUT_AGREGAR_CARRITO;
 
 public class BuscarItemsStepDefinitions {
 
@@ -30,4 +32,20 @@ public class BuscarItemsStepDefinitions {
         );
     }
 
+    @Cuando("Busco un item del catalogo accesorios para juegos")
+    public void buscoUnItemDelCatalogoJuegos() {
+        OnStage.theActorCalled("comprador").attemptsTo(
+                Open.url("https://www.amazon.com"),
+                ComprarItemJuegos.ItemJuegos()
+
+        );
+
+    }
+
+    @Entonces("debe verse la opcion de carrito")
+    public void debeVerseLaOpcionDeCarrito() {
+        OnStage.theActorInTheSpotlight().attemptsTo(
+                Ensure.that(BUT_AGREGAR_CARRITO).isEnabled()
+        );
+    }
 }
