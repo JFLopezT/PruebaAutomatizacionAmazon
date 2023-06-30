@@ -1,6 +1,4 @@
 ## Amazon Automation
 ```
-./gradlew test
-
-gradle test
+Proyecto en amazon para automatización web usando serenityBDD y gradle
 ```
