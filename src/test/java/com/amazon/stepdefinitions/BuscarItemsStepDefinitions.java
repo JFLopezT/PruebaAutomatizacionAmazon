@@ -18,7 +18,7 @@ public class BuscarItemsStepDefinitions {
     @Cuando("Busco una Tarjeta de regalo")
     public void buscoUnaTarjetaRegalo() {
         OnStage.theActorCalled("comprador").attemptsTo(
-                Open.url("https://www.amazon.com"),
+                Open.url("https://www.amazon.com/-/es/ref=nav_logo"),
                 ComprarTarjetaElectronica.TarjetaElectronica()
 
         );
@@ -35,7 +35,7 @@ public class BuscarItemsStepDefinitions {
     @Cuando("Busco un item del catalogo accesorios para juegos")
     public void buscoUnItemDelCatalogoJuegos() {
         OnStage.theActorCalled("comprador").attemptsTo(
-                Open.url("https://www.amazon.com"),
+                Open.url("https://www.amazon.com/-/es/ref=nav_logo"),
                 ComprarItemJuegos.ItemJuegos()
 
         );

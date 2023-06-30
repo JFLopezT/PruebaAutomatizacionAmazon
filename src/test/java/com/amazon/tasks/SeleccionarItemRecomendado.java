@@ -9,7 +9,7 @@ import static com.amazon.page.ResultadosBusqueda.*;
 
 public class SeleccionarItemRecomendado {
     public static Performable conRecomendacion() {
-        return Task.where("{0} buscando items con una marca",
+        return Task.where("{0} buscando items con una recomendacion",
 
                 Click.on(BOTON_ITEM_RECOMENDADO),
                 Click.on(BOTON_ITEM_LOS_MAS_VENDIDOS),
